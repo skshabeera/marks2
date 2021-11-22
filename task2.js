@@ -1,14 +1,14 @@
 var readline=require("readline-sync");
-var username=readline.question("what is your name")
+var chalk=require("chalk")
+var username=readline.question(chalk.redBright("what is your name"))
 var score=0
-console.log("welcome to shabeera's quiz")
-console.log("welcome"+username)
+console.log(chalk.cyanBright("welcome "+username))
 function check(question,answer,options){
   console.log(question)
   for(var i=0;i<options.length;i++){
   console.log(i+1,options[i])
 }
-  var useranswer=readline.questionInt("select your options:")
+  var useranswer=readline.question(chalk.cyan("select your options:"))
   if (useranswer===currentquestion.answer){
     console.log("you are right")
     score++
@@ -21,41 +21,24 @@ function check(question,answer,options){
   }
 
   var questionBank=[
-    {question:"Glass is a...",
-    options:["superhearted liquid","supercooled solid","supercooled liquid","supercooled acid"],
-    answer:3
+    {question:"where did you live?",
+    options:["Bangalore","hyderabad","delhi","pune"],
+    answer:1
     
   },
   {
-    question:"Which of the following speeds is faster?",
-    options:["The speed of sound","The speed of light",
-        
-        " The speed of electricity","the speed of vehicle "],
-    answer:2
+    question:"what is your favourite color?",
+    options:["pink","green","yellow","orange"],
+    answer:3
   },
   {
-    question:" Which branch of government is responsible for making laws?",
-    options:["executive","legislative"," judicial","the lord flower"],
+    question:"what you are learning ?",
+    options:["javascript","python","java","react"],
     answer:2
 
-  },{
-      question:"Most cocoa beans are grown and harvested in which continent?",
-      options:["Asia",
-
-        "Africa",
-        
-        " South Africa"],
-      answer:2
-  },
-{
-    question:"Which of the following terms refers to the fear of flying?",
-    options:["Planophobia","Aviophobia","Fliophobia"],
-    answer:2
-
-}]
+  }]
 for (var i=0;i<questionBank.length;i++){
 var currentquestion=questionBank[i]
-console.log(questionBank.answer)
 check(currentquestion.question,currentquestion.answer,currentquestion.options)
 
 }
@@ -65,9 +48,8 @@ var scorebank=[
   name:"srilatha",score:3
 
 }]
-console.log("boom!,if your get  high score send me a screenshot tell me i will update")
-
-
+console.log(chalk.yellow("boom!,if your get  high score send me a screenshot"))
 for (var i=0;i<scorebank.length;i++){
 console.log(scorebank[i].name,scorebank[i].score)
 }
+
